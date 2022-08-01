@@ -1,0 +1,61 @@
+{% extends "base/base.html" %} {% load static %} {% block content %}
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-11">
+            <h4 class="card-title">Schedule Things</h4>            
+            <div class="alert alert-danger" id="danger-alert" role="alert">
+              Hello
+            </div>            
+          </div>
+          <div class="col-md-1">
+            <div class="row">
+              <div class="col-md-6">
+                <button
+                  class="btn btn-primary btn-rounded btn-icon"
+                  onClick="addRow()"
+                >
+                  <i class="mdi mdi-plus"></i>
+                </button>
+              </div>
+              <div class="col-md-6">
+                <button
+                  class="btn btn-primary btn-rounded btn-icon"
+                  onClick="deleteRow()"
+                >
+                  <i class="mdi mdi-minus-circle"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form class="forms-sample" enctype="multipart/form-data" id="fileForm" action="" method="POST">
+            {% csrf_token %}
+          <div class="table-responsive">
+            <table id="content" class="table table-borderless">
+              <thead>
+                <tr>
+                  <th>File Count</th>
+                <th>File</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Looping</th>
+                <th>Time</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </form>
+        <p>
+          <button id="submitBtn" type="button" onClick="submitForm()" class="btn btn-primary me-2">Submit</button>
+          <div id="submitSpinner" class="spinner-border text-primary" role="status">            
+          </div>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
